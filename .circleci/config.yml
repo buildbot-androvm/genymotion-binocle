@@ -26,13 +26,13 @@ jobs:
           command: chmod +x ./genymotion-2.11.0-linux_x64.bin 
       - run:
           name: Install Genymotion
-          command: sudo yes | ./genymotion-2.11.0-linux_x64.bin
+          command: sudo yes | sudo ./genymotion-2.11.0-linux_x64.bin
       - run:
           name: Configure Genymotion
-          command: sudo /opt/genymobile/gmtool config username $GM_USER password $GM_PASS
+          command: /opt/genymobile/genymotion/gmtool config username $GM_USER password $GM_PASS
       - run:
           name: Start Genymotion Cloud device
-          command: opt/genymobile/gmtool --cloud admin startdisposable "Custom Phone - 7.1.0 - API 25 - 768x1280" testDevice
+          command: /opt/genymobile/genymotion/gmtool --cloud admin startdisposable "Custom Phone - 7.1.0 - API 25 - 768x1280" testDevice
       - run:
           name: Run the tests
           command: ./gradlew connectedAndroidTest --console=plain
